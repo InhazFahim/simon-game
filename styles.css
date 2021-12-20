@@ -1,7 +1,10 @@
+*{
+  touch-action: manipulation;
+}
+
 body {
   text-align: center;
   background-color: #011F3F;
-  touch-action: manipulation;
 }
 
 #level-title {
