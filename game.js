@@ -5,7 +5,7 @@ let userClickedPattern = [];
 let started = false;
 let level = 1;
 
-$(document).keypress(function(){
+$(document).dblclick(function(){
     if(!started){
         started = true;
         nextSequence();
@@ -13,14 +13,18 @@ $(document).keypress(function(){
 });
 
 $(".btn").click(function(event){
-    let userChosenColour = $(this).attr("id");
-    userClickedPattern.push(userChosenColour);
-    playSound(userChosenColour);
-    animatePress(userChosenColour);
-    checkAnswers(userClickedPattern.length - 1);
+    if(started == true){
+        let userChosenColour = $(this).attr("id");
+        userClickedPattern.push(userChosenColour);
+        playSound(userChosenColour);
+        animatePress(userChosenColour);
+        checkAnswers(userClickedPattern.length - 1);
+    }
 });
 
+
 function nextSequence(){
+    $("#level-title-two").text('')
     userClickedPattern = [];
     $("#level-title").text("Level " + level);
     let randomNumber = Math.floor(Math.random() * 4);
@@ -52,7 +56,8 @@ function checkAnswers(gameLevel){
             },1000);
         }
     }else{
-        $("#level-title").text("GAME OVER... PRESS ANY KEY TO RESTART.");
+        $("#level-title").text("GAME OVER");
+        $("#level-title-two").text("Double Click To Restart").css("line-height" , "150%");
         playSound("wrong");
         $("body").addClass("game-over");
         setTimeout(function(){
