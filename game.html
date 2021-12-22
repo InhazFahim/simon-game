@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Simon-Game</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
+  </head>
+  <!-- 
+    01.display the colours in two rows and two coloumns for mobile
+    02.add some animation after game over
+    03.record the high score
+  -->
+
+  <!-- 
+    01. add 3 lives before game over
+    02. add heart icons in left side of the screen that popes after wrong input
+   -->
+  <body>
+    <h1 id="level-title">Double Click To Start</h1>
+    <h1 id="level-title-two"></h1>
+    <div class="container">
+      <div class="row">
+        <div type="button" id="green" class="btn green"></div>
+
+        <div type="button" id="red" class="btn red"></div>
+      </div>
+
+      <div class="row">
+        <div type="button" id="yellow" class="btn yellow"></div>
+        <div type="button" id="blue" class="btn blue"></div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>
