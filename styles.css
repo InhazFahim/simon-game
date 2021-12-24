@@ -2,9 +2,21 @@
   touch-action: manipulation;
 }
 
+
+#HeaderOfThePage{
+  font-family: 'Press Start 2P', cursive;
+  color:coral;
+  font-size: 5rem;
+  text-align: center;
+}
+
 body {
   text-align: center;
   background-color: #011F3F;
+  display: block;
+	justify-content: center;
+	align-items: center;
+  width: auto;
 }
 
 #level-title {
@@ -24,9 +36,8 @@ body {
 
 .container {
   display: block;
-  width: 50%;
+  width: 100%;
   margin: auto;
-
 }
 
 .btn {
@@ -62,4 +73,147 @@ body {
 .pressed {
   box-shadow: 0 0 20px white;
   background-color: grey;
+}
+
+ul{
+  list-style-type: none;
+}
+
+.menu-list{
+  line-height: 300%;
+}
+
+#gameMenu{
+  font-size: 2rem;
+  font-family: 'Press Start 2P', cursive;
+  margin: 10% 20% 0% 20%;
+  text-align: center;
+}
+
+a{
+  position: relative;
+  text-decoration: none;
+  color: aliceblue;
+  padding: 0 10px;
+}
+
+a::after{
+  content: "";
+  position: absolute;
+  background-color: rgb(216, 144, 10);
+  height: 3px;
+  width: 100%;
+  left:0;
+  bottom: -10px;
+  transform: scale(0,1);
+  transition: 0.3s ease;
+}
+
+a:hover{
+  color: rgb(255, 217, 0);
+}
+
+a:hover:after{
+  transform: scale(1,1);
+}
+
+#seperator{
+  border: 1px solid rgb(0, 255, 170);
+}
+
+#instructions{
+  margin:5% 10% 5% 10%;
+  font-size: 1.5rem;
+  font-family: 'Courier New', Courier, monospace;
+  color: goldenrod;
+  text-align: left;
+  line-height: 150%;
+  font-weight: 600;
+}
+
+.instruction-list{
+  padding-bottom:2%;
+}
+
+#instNav{
+  margin:5% 0% 5% 0%;
+  color: #ffffff;
+  font-size: 3rem;
+  line-height: 150%;
+}
+
+#instNav #opt1{
+  margin-right: 10%;
+}
+
+#instNav #opt2{
+  margin-left: 10%;
+}
+
+#instruction-vid{
+  padding: 5%;
+  height: auto;
+  width: auto;
+}
+
+
+@media (max-width: 480px){
+  *{
+    width:800px;
+    justify-content: center
+  }
+
+  body{
+    width: 950px;
+    height: 2267px;
+    margin: 0%;
+  }
+
+  #HeaderOfThePage{
+    font-size: 3.60rem;
+    margin:10px 0px;
+    width:855px;
+    padding: 5%;
+  }
+
+  #seperator{
+    width: 950px;
+  }
+
+  #instructions{
+    width: 870px;
+    margin-left: 40px;
+    font-size: 2.5rem;
+  }
+  
+  .instruction-list{  
+    padding-bottom: 5%;
+  }
+
+  #instNav{
+    margin-left: 50px;
+    margin-right: 20px;
+    width: 840px;
+  }
+
+  .btn{
+    width: 300px;
+    height: 300px;
+  }
+
+  .row{
+    width: 40%;
+  }
+
+  .container{
+    display: flex;
+    margin-top:25%;
+  }
+
+  #gameMenu{
+    font-size: 4rem;
+    font-family: 'Press Start 2P', cursive;
+    margin: 50% 7.5% 5% 7.5%;
+    padding-left: 0%;
+  }
 }

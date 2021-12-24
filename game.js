@@ -5,12 +5,21 @@ let userClickedPattern = [];
 let started = false;
 let level = 1;
 
-$(document).dblclick(function(){
-    if(!started){
-        started = true;
-        nextSequence();
+let fileLoc = document.documentURI
+let doubleTapper = false;
+
+if(fileLoc === "file:///E:/PROJECTS/Simon/game.html"){doubleTapper = true;}
+
+$(document).dblclick(function(){  
+    if(doubleTapper == true){
+        console.log(doubleTapper);
+        if(!started){
+            started = true;
+            nextSequence();
+        }
     }
 });
+
 
 $(".btn").click(function(event){
     if(started == true){
