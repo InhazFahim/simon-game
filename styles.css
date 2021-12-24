@@ -2,6 +2,7 @@
   touch-action: manipulation;
 }
 
+
 #HeaderOfThePage{
   font-family: 'Press Start 2P', cursive;
   color:coral;
@@ -35,9 +36,8 @@ body {
 
 .container {
   display: block;
-  width: 50%;
+  width: 100%;
   margin: auto;
-  
 }
 
 .btn {
@@ -86,8 +86,8 @@ ul{
 #gameMenu{
   font-size: 2rem;
   font-family: 'Press Start 2P', cursive;
-  margin: 4.5% 20% 20% 20%;
-  padding-top: 10%;
+  margin: 10% 20% 0% 20%;
+  text-align: center;
 }
 
 a{
@@ -194,5 +194,26 @@ a:hover:after{
     margin-left: 50px;
     margin-right: 20px;
     width: 840px;
+  }
+
+  .btn{
+    width: 300px;
+    height: 300px;
+  }
+
+  .row{
+    width: 40%;
+  }
+
+  .container{
+    display: flex;
+    margin-top:25%;
+  }
+
+  #gameMenu{
+    font-size: 4rem;
+    font-family: 'Press Start 2P', cursive;
+    margin: 50% 7.5% 5% 7.5%;
+    padding-left: 0%;
   }
 }
