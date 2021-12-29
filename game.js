@@ -1,47 +1,64 @@
 const buttonColours = ["red" , "blue" , "green" , "yellow"];
 let gamePattern = [];
 let userClickedPattern = [];
+let randomChosenColour = [];
+let randomNumber;
 
 let started = false;
-let level = 1;
+let level = 0;
+let initializer = true;
 
-let fileLoc = document.documentURI
-let doubleTapper = false;
+let current_path = window.location.pathname.split('/').pop();
 
-if(fileLoc === "file:///E:/PROJECTS/Simon/game.html"){doubleTapper = true;}
+if($(window).width() < 480){
+    $('#level-title').text("Tap On The Screen To Play");
+} else {
+    $('#level-title').text("Click To Start");   
+}
 
-$(document).dblclick(function(){  
-    if(doubleTapper == true){
-        console.log(doubleTapper);
-        if(!started){
-            started = true;
+$("#HighScoreBtn").on("click", (function(){
+    high_score = localStorage.getItem("highScore");
+    $('body').append('<div id="highScorePopUp"></div>');
+    $('#highScorePopUp').prepend('<h3 id="highScorePopUpHeading">High Score</h3>');
+    $('#highScorePopUp').append('<h3 id="highScoreBlock">' + high_score + '</h3>');
+    $('#highScorePopUp').append('<div id="highScoreOkBtn">OK</div>');
+    $('#highScoreOkBtn').on('click',(function(){
+        $('#highScorePopUp').remove();
+    }))
+}));
+
+$(document).on('click' , function(){
+    if(current_path === "game.html"){    
+        if(!started && initializer == true){
+            started = true; 
+            initializer = false;      
             nextSequence();
         }
     }
 });
 
+$(".btn").on('click', clickFunction);
 
-$(".btn").click(function(event){
+function clickFunction(){
     if(started == true){
         let userChosenColour = $(this).attr("id");
         userClickedPattern.push(userChosenColour);
+        checkAnswers(userClickedPattern.length - 1);
         playSound(userChosenColour);
         animatePress(userChosenColour);
-        checkAnswers(userClickedPattern.length - 1);
     }
-});
-
+}
 
 function nextSequence(){
+    level++
     $("#level-title-two").text('')
     userClickedPattern = [];
     $("#level-title").text("Level " + level);
-    let randomNumber = Math.floor(Math.random() * 4);
-    let randomChosenColour = buttonColours[randomNumber];
+    randomNumber = Math.floor(Math.random() * 4);
+    randomChosenColour = buttonColours[randomNumber];
     gamePattern.push(randomChosenColour);
     $("#" + randomChosenColour).fadeIn(200).fadeOut(200).fadeIn(200);
     playSound(randomChosenColour);
-    level++;
 }
 
 function playSound(name){
@@ -58,27 +75,56 @@ function animatePress(currentColour){
 
 function checkAnswers(gameLevel){
     if(gamePattern[gameLevel] === userClickedPattern[gameLevel]){
-        console.log("its correct");
         if(gamePattern.length === userClickedPattern.length){
             setTimeout(function(){
                 nextSequence();
             },1000);
         }
     }else{
+        $(".btn").off('click');
         $("#level-title").text("GAME OVER");
-        $("#level-title-two").text("Double Click To Restart").css("line-height" , "150%");
         playSound("wrong");
         $("body").addClass("game-over");
         setTimeout(function(){
             $("body").removeClass("game-over");
         },200);
-        startOver();
+        HighScore(level)
+        gameOver();
     }
 }
 
-function startOver(){
-    level = 1; 
-    gamePattern = [];
-    started = false;
+function gameOver(){
+    $('body').append('<div id="gameOverPopUp"></div>');
+    $('#gameOverPopUp').prepend('<h3 id="popUpHeading">GAME OVER</h3>');
+    $('#gameOverPopUp').append('<div id="Opts"></div>');
+    $('#Opts').append('<div id="MainMenuOpt">Menu</div>');
+    $('#Opts').append('<div id="ReplayOpt">Replay</div>');
+    
+
+    $('#MainMenuOpt').on('click' , (function(){
+        location.href = "index.html";
+    }))
+    
+    $('#ReplayOpt').on('click' , (function(){
+        $(".btn").on('click' , clickFunction);
+        $("#gameOverPopUp").remove();
+        level = 0; 
+        gamePattern = [];
+        started = true;
+        nextSequence();
+    }));
+}
+
+function HighScore(currentScore){
+    var score = currentScore ;
+    var high_score = 0
+    high_score = localStorage.getItem("highScore");
+    if(high_score !== null){
+        if(score > high_score){
+            high_score = localStorage.setItem("highScore",score);
+        }
+    }else{
+        localStorage.setItem("highScore",score)
+    }
 }
 
