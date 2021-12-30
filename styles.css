@@ -252,9 +252,7 @@ a:hover:after{
   display: block;
   text-align: center;
   border-radius: 15%;
-  cursor: default;
-  vertical-align: middle;
-  
+  cursor: default;  
 }
 
 #highScoreOkBtn:hover{
