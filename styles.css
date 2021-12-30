@@ -163,15 +163,15 @@ a:hover:after{
 #gameOverPopUp{
   font-family: 'Press Start 2P', cursive;
   position: absolute;
-  width: 400px;
-  height: 200px;
-  z-index: 15;
-  top: 52%;
-  left: 46.5%;
-  margin: -100px 0 0 -150px;
-  background: rgb(218, 167, 28);
-  border: 5px solid rgb(0, 0, 0) ;
+  width:27.5%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px solid #000000;
   border-radius: 10%;
+  padding: 10px;
+  z-index: 15;
+  background: rgb(218, 167, 28);
 }
 
 #popUpHeading{
@@ -219,15 +219,15 @@ a:hover:after{
 #highScorePopUp{
   font-family: 'Press Start 2P', cursive;
   position: absolute;
-  width: 400px;
-  height: 200px;
-  z-index: 15;
-  top: 52%;
-  left: 46.5%;
-  margin: -100px 0 0 -150px;
-  background: rgb(218, 167, 28);
-  border: 5px solid rgb(0, 0, 0) ;
+  width:27.5%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px solid #000000;
   border-radius: 10%;
+  padding: 10px;
+  z-index: 15;
+  background: rgb(218, 167, 28);
 }
 
 #highScorePopUpHeading{
@@ -350,9 +350,7 @@ a:hover:after{
   }
 
   #gameOverPopUp{
-    width: 85%;
-    position: absolute;
-    left: 47.5%;
+    width: 70%;
   }
 
   #Opts{
@@ -360,7 +358,7 @@ a:hover:after{
   }
 
   #highScorePopUp{
-    width: 320px;
+    width: 75%;
   }
   
   #highScorePopUpHeading{
