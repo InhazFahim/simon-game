@@ -2,7 +2,17 @@
   touch-action: manipulation;
 }
 
+body {
+  text-align: center;
+  background-color: #011F3F;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  zoom: 100%
+}
 
+/* header of the page */
 #HeaderOfThePage{
   font-family: 'Press Start 2P', cursive;
   color:coral;
@@ -10,30 +20,13 @@
   text-align: center;
 }
 
-body {
-  text-align: center;
-  background-color: #011F3F;
-  display: block;
-	justify-content: center;
-	align-items: center;
-  width: auto;
-  zoom: 100%
-}
-
+/* Game Styles */
 #level-title {
   font-family: 'Press Start 2P', cursive;
   font-size: 3rem;
   margin:  5%;
   color: #FEF2BF;
   line-height: 150%
-}
-
-#level-title-two {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 3rem;
-  margin:  5%;
-  line-height: 150%;
-  color: #FEF2BF
 }
 
 .container {
@@ -49,6 +42,7 @@ body {
   width: 200px;
   border: 10px solid black;
   border-radius: 20%;
+  cursor: pointer;
 }
 
 .game-over {
@@ -75,89 +69,6 @@ body {
 .pressed {
   box-shadow: 0 0 20px white;
   background-color: grey;
-}
-
-ul{
-  list-style-type: none;
-}
-
-.menu-list{
-  line-height: 200%;
-  width: auto;
-}
-
-#gameMenu{
-  font-size: 1.75rem;
-  font-family: 'Press Start 2P', cursive;
-  margin: 10% 20% 0% 20%;
-  text-align: center;
-}
-
-a{
-  position: relative;
-  text-decoration: none;
-  color: aliceblue;
-  padding: 0 10px;
-}
-
-a::after{
-  content: "";
-  position: absolute;
-  background-color: rgb(216, 144, 10);
-  height: 3px;
-  width: 100%;
-  left:0;
-  bottom: -10px;
-  transform: scale(0,1);
-  transition: 0.3s ease;
-}
-
-a:hover{
-  color: rgb(255, 217, 0);
-}
-
-a:hover:after{
-  transform: scale(1,1);
-}
-
-#seperator{
-  border: 1px solid rgb(0, 255, 170);
-  width: auto;
-}
-
-#instructions{
-  margin:5% 10% 5% 10%;
-  font-size: 1.5rem;
-  font-family: 'Courier New', Courier, monospace;
-  color: goldenrod;
-  text-align: left;
-  line-height: 150%;
-  font-weight: 600;
-}
-
-.instruction-list{
-  padding-bottom:2%;
-}
-
-#instNav{
-  margin:5% 0% 5% 0%;
-  color: #ffffff;
-  font-size: 3rem;
-  line-height: 150%;
-}
-
-#opt1{
-  margin-right: 10%;
-}
-
-#opt2{
-  margin-left: 10%;
-}
-
-#instruction-video{
-  padding: 5%;
-  height: auto;
-  width: auto;
 }
 
 #gameOverPopUp{
@@ -216,6 +127,100 @@ a:hover:after{
   background-color: red;
 }
 
+/* Main Menu */
+ul{
+  list-style-type: none;
+}
+
+.menu-list{
+  line-height: 200%;
+  width: auto;
+  margin: 2% 0%;
+}
+
+#gameMenu{
+  font-size: 1.75rem;
+  font-family: 'Press Start 2P', cursive;
+  margin: 10% 20% 0% 20%;
+  padding-top: 2.5%;
+  text-align: center;
+}
+
+a{
+  position: relative;
+  text-decoration: none;
+  color: aliceblue;
+  padding: 0 10px;
+}
+
+a::after{
+  content: "";
+  position: absolute;
+  background-color: rgb(216, 144, 10);
+  height: 3px;
+  width: 100%;
+  left:0;
+  bottom: -10px;
+  transform: scale(0,1);
+  transition: 0.3s ease;
+}
+
+a:hover{
+  color: rgb(255, 217, 0);
+}
+
+a:hover:after{
+  transform: scale(1,1);
+}
+
+#HighScoreBtn{
+  cursor: pointer;
+}
+
+/* Instruction Page */
+#seperator{
+  border: 1px solid rgb(0, 255, 170);
+  width: auto;
+}
+
+#instructions{
+  margin:5% 10% 5% 10%;
+  font-size: 1.5rem;
+  font-family: 'Courier New', Courier, monospace;
+  color: goldenrod;
+  text-align: left;
+  line-height: 150%;
+  font-weight: 600;
+}
+
+.instruction-list{
+  padding-bottom:2%;
+}
+
+#instNav{
+  margin:5% 0% 5% 0%;
+  color: #ffffff;
+  font-size: 3rem;
+  line-height: 150%;
+}
+
+/* Main Menu Option to navigate in instruction page */
+#opt1{
+  margin-right: 10%;
+}
+
+/* Play Simon Option to navigate to the game in instruction page */
+#opt2{
+  margin-left: 10%;
+}
+
+#instruction-video{
+  padding: 5%;
+  height: auto;
+  width: auto;
+}
+
+/* HighScore Popup in main menu */
 #highScorePopUp{
   font-family: 'Press Start 2P', cursive;
   position: absolute;
@@ -272,14 +277,34 @@ a:hover:after{
     zoom: 100%;
   }
 
+  /* Main Menu */
+  #gameMenu{
+    font-size: 1.25rem;
+    font-family: 'Press Start 2P', cursive;
+    margin: 50% 2% 5% 2%;
+    padding: 0%;
+    text-align: center;
+  }
+
+  #level-title{
+    font-size: 1.25rem;
+    margin: 5% 0;
+  }
+
+  .menu-list{
+    line-height: 275%;
+  }
+
+  /* page heading */
   #HeaderOfThePage{
-    font-size: 1.50rem;
+    font-size: 2rem;
     margin:1%;
     width:auto;
     padding: 3%;
     justify-content: center;
   }
 
+  /* Instruction Page */
   #seperator{
     border: 1px solid rgb(0, 255, 170);
     width: auto;
@@ -315,6 +340,7 @@ a:hover:after{
     padding: 4%;
   }
 
+  /* Game */
   .btn{
     width: 110px;
     height: 110px;
@@ -332,23 +358,6 @@ a:hover:after{
     margin-top:25%;
   }
 
-  #gameMenu{
-    font-size: 1.25rem;
-    font-family: 'Press Start 2P', cursive;
-    margin: 50% 2% 5% 2%;
-    padding-left: 0%;
-    text-align: center;
-  }
-
-  #level-title, #level-title-two{
-    font-size: 1.25rem;
-    margin: 18px 0px;
-  }
-
-  .menu-list{
-    line-height: 275%;
-  }
-
   #gameOverPopUp{
     width: 70%;
   }
@@ -356,7 +365,8 @@ a:hover:after{
   #Opts{
     margin-top: 15%;
   }
-
+  
+  /* High Score pop Up */
   #highScorePopUp{
     width: 75%;
   }
